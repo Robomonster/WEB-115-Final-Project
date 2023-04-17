@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB-115 Final Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>William Henderson</h1>
+        <p>WEB-115 Section 4101</p>
+        <p>Build Your Resume</p>
+    </div>
+    <div class="form-body">
+        <form onsubmit="return false;">
+            <div class="form-section">
+                <h2 class="form-section-header">Basic Information</h2>
+                <div id="basic-info" class="content">
+                <div class="name user-input-description">Your full name.</div>
+                <div class="name user-input">
+                    <fieldset>
+                        <legend>Full Name</legend>
+                        <input id="name" type="text" placeholder="John Smith">
+                    </fieldset>
+                </div>
+                <div class="name user-input-detail"></div>
+                <div class="email user-input-description">A good email address to reach you.</div>
+                <div class="email user-input">
+                    <fieldset>
+                        <legend>Email</legend>
+                        <input id="email" type="text" placeholder="example@example.com">
+                    </fieldset>
+                </div>
+                <div class="email user-input-detail"></div>
+                <div class="city user-input-description">The city in which you live.</div>
+                <div class="user-input">
+                    <fieldset>
+                        <legend>City</legend>
+                        <input id="city" type="text" placeholder="Los Angeles">
+                    </fieldset>
+                </div>
+                <div class="city user-input-detail"></div>
+                <div class="state user-input-description">The state in which you live.</div>
+                <div class="user-input">
+                    <fieldset>
+                        <legend>State</legend>
+                        <input id="state" type="text" placeholder="California">
+                    </fieldset>
+                </div>
+                <div class="state user-input-detail"></div>
+                <div class="zip user-input-description">Your 5 digit zip code.</div>
+                <div class="user-input">
+                    <fieldset>
+                        <legend>Zip Code</legend>
+                        <input id="zip" type="text" placeholder="90001">
+                    </fieldset>
+                </div>
+                <div class="zip user-input-detail"></div>
+                <div class="phone user-input-description">A good phone number to reach you.</div>
+                <div class="user-input">
+                    <fieldset>
+                        <legend>Phone Number</legend>
+                        <input id="phone" type="text" placeholder="(000) 000-0000">
+                    </fieldset>
+                </div>
+                <div class="phone user-input-detail"></div>
+                <div class="website user-input-description"><b>(optional)</b> A link to your website.</div>
+                <div class="user-input">
+                    <fieldset>
+                        <legend>Website</legend>
+                        <input id="website" type="text" placeholder="yoursite.com">
+                    </fieldset>
+                </div>
+                <div class="website user-input-detail"></div>
+                <div class="links user-input-description"><b>(optional)</b> A landing page with links to relevent web pages.</div>
+                <div class="user-input">
+                    <fieldset>
+                        <legend>Links</legend>
+                        <input id="links" type="text" placeholder="landingpage.com">
+                    </fieldset>
+                </div>
+                <div class="links user-input-detail"></div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2 class="form-section-header">General Skills</h2>
+                <div id="gen-skills" class="content">
+                    <div class="skill-name">
+                        <fieldset>
+                            <legend>Skill</legend>
+                            <input id="gen-skill-name-1" type="text" placeholder="Skill">
+                        </fieldset>
+                    </div>
+                    <div class="skill-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="gen-skill-detail-1" type="text" placeholder="Enter detail here."></textarea>
+                        </fieldset>
+                    </div>
+                    <div class="skill-name">
+                        <fieldset>
+                            <legend>Skill</legend>
+                            <input id="gen-skill-name-2" type="text" placeholder="Skill">
+                        </fieldset>
+                    </div>
+                    <div class="skill-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="gen-skill-detail-2" type="text" placeholder="Enter detail here."></textarea>
+                        </fieldset>
+                    </div>
+                    <div class="skill-name">
+                        <fieldset>
+                            <legend>Skill</legend>
+                            <input id="gen-skill-name-3" type="text" placeholder="Skill">
+                        </fieldset>
+                    </div>
+                    <div class="skill-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="gen-skill-detail-3" type="text" placeholder="Enter detail here."></textarea>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2 class="form-section-header">Technical Skills</h2>
+                <div id="tech-skills" class="content">
+                    <div class="skill-name">
+                        <fieldset>
+                            <legend>Skill</legend>
+                            <input id="tech-skill-name-1" type="text" placeholder="Skill">
+                        </fieldset>
+                    </div>
+                    <div class="skill-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="tech-skill-detail-1" type="text" placeholder="Enter detail here."></textarea>
+                        </fieldset>
+                    </div>
+                    <div class="skill-name">
+                        <fieldset>
+                            <legend>Skill</legend>
+                            <input id="tech-skill-name-2" type="text" placeholder="Skill">
+                        </fieldset>
+                    </div>
+                    <div class="skill-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="tech-skill-detail-2" type="text" placeholder="Enter detail here."></textarea>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2 class="form-section-header">Education</h2>
+                <div id="education" class="content">
+                    <fieldset>
+                        <legend>Detail</legend>
+                        <textarea id="education-detail" type="text" placeholder="Enter education details here."></textarea>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2 class="form-section-header">Previous Employment Details</h2>
+                <div class="content empoy-info">
+                    <div class="employ-date">
+                        <fieldset>
+                            <legend>Start Date</legend>
+                            <input id="employ-start-1" type="date" name="">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Stop Date</legend>
+                            <input id="employ-stop-1" type="date" name="">
+                        </fieldset>
+                    </div>
+                    <div class="employ-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="employ-detail-1" type="text" placeholder="Enter employment details here."></textarea>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="content empoy-info">
+                    <div class="employ-date">
+                        <fieldset>
+                            <legend>Start Date</legend>
+                            <input id="employ-start-2" type="date" name="">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Stop Date</legend>
+                            <input id="employ-stop-2" type="date" name="">
+                        </fieldset>
+                    </div>
+                    <div class="employ-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="employ-detail-2" type="text" placeholder="Enter employment details here."></textarea>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="content empoy-info">
+                    <div class="employ-date">
+                        <fieldset>
+                            <legend>Start Date</legend>
+                            <input id="employ-start-3" type="date" name="">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Stop Date</legend>
+                            <input id="employ-stop-3" type="date" name="">
+                        </fieldset>
+                    </div>
+                    <div class="employ-detail">
+                        <fieldset>
+                            <legend>Detail</legend>
+                            <textarea id="employ-detail-3" type="text" placeholder="Enter employment details here."></textarea>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2 class="form-section-header">Business References</h2>
+                <fieldset>
+                    <legend>Details</legend>
+                    <textarea id="business-ref" type="text" placeholder="Enter business reference details here."></textarea>
+                </fieldset>
+            </div>
+            <div class="form-section submit-section">
+                <button id="submit">Create Resume</button>
+            </div>
+        </form>
+    </div>
+    <script src="projectJS.js"></script>
+</body>
+</html>
