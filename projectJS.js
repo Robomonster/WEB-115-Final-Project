@@ -105,7 +105,7 @@ function submit() {
     // check email
     let email = basicInfo['email']['value'];
 
-    let emailRegex = /^[a-zA-z0-9]+@[a-zA-z0-9]+\.[a-zA-z0-9]{1,6}$/;
+    let emailRegex = /^[a-zA-z0-9]+@[a-zA-z0-9.]+$/;
     if (!emailRegex.test(email)) {
         emailDet.textContent = 'Invalid email address.';
         emailDet.scrollIntoView();
@@ -116,7 +116,7 @@ function submit() {
     if (!problems) {
         let popup = window.open('', 'popUpWindow', 'height=500, width=500, left=100, top=100, resizable=yes, scrollbars=yes, toolbar=yes, menubar=no, location=no, directories=no');
         let newPageHTML = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title>';
-        newPageHTML += '<style>* {font-family: sans-serif;} h2 {border-bottom: 1px solid #30acff;} div.gridlist {display: grid;grid-template-columns: 1fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;} div.gridlist-even {display: grid;grid-template-columns: 3fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;}</style>';
+        newPageHTML += '<style>* {font-family: sans-serif;} h2 {border-bottom: 2px solid #30acff;} div.gridlist {display: grid;grid-template-columns: 1fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;} div.gridlist-even {display: grid;grid-template-columns: 3fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;}</style>';
         newPageHTML += '</head><body>';
         newPageHTML += `<h1>${basicInfo['name']['value']}</h1>`;
         newPageHTML += `<div>${basicInfo['phone']['value']}</div>`;
