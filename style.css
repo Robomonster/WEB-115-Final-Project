@@ -90,7 +90,7 @@ button {
     border: 2px solid var(--bd);
     padding: 10px;
     min-width: 4ch;
-    background: var(--bg);
+    background: var(--bd);
     font-size: 2.1rem;
 }
 
