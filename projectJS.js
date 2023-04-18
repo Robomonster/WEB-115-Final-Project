@@ -1,14 +1,4 @@
 // form elements
-// basic info
-let nameInpt = document.getElementById('name');
-let emailInpt = document.getElementById('email');
-let cityInpt = document.getElementById('city');
-let stateInpt = document.getElementById('state');
-let zipInpt = document.getElementById('zip');
-let phoneInpt = document.getElementById('phone');
-let siteInpt = document.getElementById('website');
-let landingInpt = document.getElementById('links');
-
 let nameDet = document.querySelector('div.name.user-input-detail');
 let emailDet = document.querySelector('div.email.user-input-detail');
 let cityDet = document.querySelector('div.city.user-input-detail');
@@ -18,39 +8,12 @@ let phoneDet = document.querySelector('div.phone.user-input-detail');
 let siteDet = document.querySelector('div.website.user-input-detail');
 let landingDet = document.querySelector('div.links.user-input-detail');
 
-// general skills
-let skillName1Inpt = document.getElementById('gen-skill-name-1');
-let skillDet1Inpt = document.getElementById('gen-skill-detail-1');
-let skillName2Inpt = document.getElementById('gen-skill-name-2');
-let skillDet2Inpt = document.getElementById('gen-skill-detail-2');
-let skillName3Inpt = document.getElementById('gen-skill-name-3');
-let skillDet3Inpt = document.getElementById('gen-skill-detail-3');
-
-// technical skills
-let techName1Inpt = document.getElementById('tech-skill-name-1');
-let techDet1Inpt = document.getElementById('tech-skill-detail-1');
-let techName2Inpt = document.getElementById('tech-skill-name-2');
-let techDet2Inpt = document.getElementById('tech-skill-detail-2');
-
-// education
-let eduInpt = document.getElementById('education-detail');
-
-// previous employment
-let empStrt1Inpt = document.getElementById('employ-start-1');
-let empStop1Inpt = document.getElementById('employ-stop-1');
-let empDet1Inpt = document.getElementById('employ-detail-1');
-let empStrt2Inpt = document.getElementById('employ-start-2');
-let empStop2Inpt = document.getElementById('employ-stop-2');
-let empDet2Inpt = document.getElementById('employ-detail-2');
-let empStrt3Inpt = document.getElementById('employ-start-3');
-let empStop3Inpt = document.getElementById('employ-stop-3');
-let empDet3Inpt = document.getElementById('employ-detail-3');
-
-// business references
-let busRefInpt = document.getElementById('business-ref');
-
-// submit
+// buttons
 let submitBtn = document.getElementById('submit');
+let themeBtn = document.getElementById('theme-switch');
+
+// current theme
+let isLightTheme = true;
 
 
 function submit() {
@@ -91,16 +54,10 @@ function submit() {
         }
     }
 
-    // check values
+    // check for problems
     let problems = false;
-    // check if basic values are blank
-    for (k in basicInfo) {
-        let v = basicInfo[k];
-        if (!v.value && k != 'website' && k != 'links') {
-            document.querySelector(`div.${k}.user-input-detail`).textContent = 'Must not be blank.';
-            document.querySelector(`div.${k}.user-input-detail`).scrollIntoView();
-            problems = true;
-        }
+    for (let elt of [nameDet, emailDet, cityDet, stateDet, zipDet, phoneDet]) {
+        elt.textContent = '';
     }
     // check email
     let email = basicInfo['email']['value'];
@@ -109,14 +66,30 @@ function submit() {
     if (!emailRegex.test(email)) {
         emailDet.textContent = 'Invalid email address.';
         emailDet.scrollIntoView();
+        scrollBy(0, -100);
         problems = true;
+    }
+
+    // check if basic values are blank
+    for (let id of ['links', 'website', 'phone', 'zip', 'state', 'city', 'email', 'name']) {
+        let v = basicInfo[id];
+        if (!v.value && id != 'website' && id != 'links') {
+            document.querySelector(`div.${id}.user-input-detail`).textContent = 'Must not be blank.';
+            document.querySelector(`div.${id}.user-input-detail`).scrollIntoView();
+            scrollBy(0, -100);
+            problems = true;
+        }
     }
 
     // create page
     if (!problems) {
+        let customFG = document.getElementById('fg-color').value
+        let customBG = document.getElementById('bg-color').value
+        let customALT = document.getElementById('alt-color').value
+
         let popup = window.open('', 'popUpWindow', 'height=500, width=500, left=100, top=100, resizable=yes, scrollbars=yes, toolbar=yes, menubar=no, location=no, directories=no');
         let newPageHTML = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title>';
-        newPageHTML += '<style>* {font-family: sans-serif;} h2 {border-bottom: 2px solid #30acff;} div.gridlist {display: grid;grid-template-columns: 1fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;} div.gridlist-even {display: grid;grid-template-columns: 3fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;}</style>';
+        newPageHTML += `<style>* {font-family: sans-serif; color: ${customFG}; background-color: ${customBG};} h2 {border-bottom: 2px solid ${customALT};} div.gridlist {display: grid;grid-template-columns: 1fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;} div.gridlist-even {display: grid;grid-template-columns: 3fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;}</style>`;
         newPageHTML += '</head><body>';
         newPageHTML += `<h1>${basicInfo['name']['value']}</h1>`;
         newPageHTML += `<div>${basicInfo['phone']['value']}</div>`;
@@ -161,4 +134,44 @@ function submit() {
     }
 }
 
+function changeTheme() {
+    isLightTheme = !isLightTheme;
+    let root = document.querySelector(':root');
+
+    if (isLightTheme) {
+        root.style.setProperty('--fg', '#000');
+        root.style.setProperty('--fg-alt', '#4d5254');
+        root.style.setProperty('--fg-hover', '#576368');
+        root.style.setProperty('--fg-active', '#738289');
+        root.style.setProperty('--fg-err', '#ff8181');
+        root.style.setProperty('--bg', '#fff');
+        root.style.setProperty('--bg-alt', '#f3f9fc');
+        root.style.setProperty('--bg-hover', '#eff8ff');
+        root.style.setProperty('--bg-active', '#e6f3fd');
+        root.style.setProperty('--bd', '#30acff');
+        root.style.setProperty('--bd-alt', '#30acff');
+        root.style.setProperty('--bd-hover', '#30acff');
+        root.style.setProperty('--bd-active', '#30acff');
+        root.style.setProperty('--shadow', '#a8bac1');
+        themeBtn.textContent = '🌙';
+    } else {
+        root.style.setProperty('--fg', '#eee');
+        root.style.setProperty('--fg-alt', '#ccc');
+        root.style.setProperty('--fg-hover', '#ccc');
+        root.style.setProperty('--fg-active', '#ccc');
+        root.style.setProperty('--fg-err', '#ff8181');
+        root.style.setProperty('--bg', '#262630');
+        root.style.setProperty('--bg-alt', '#282832');
+        root.style.setProperty('--bg-hover', '#303035');
+        root.style.setProperty('--bg-active', '#303040');
+        root.style.setProperty('--bd', '#30acff');
+        root.style.setProperty('--bd-alt', '#30acff');
+        root.style.setProperty('--bd-hover', '#30acff');
+        root.style.setProperty('--bd-active', '#30acff');
+        root.style.setProperty('--shadow', '#3d484c');
+        themeBtn.textContent = '☀';
+    }
+}
+
 submitBtn.addEventListener('click', submit);
+themeBtn.addEventListener('click', changeTheme);

@@ -227,10 +227,30 @@
                     <textarea id="business-ref" type="text" placeholder="Enter business reference details here."></textarea>
                 </fieldset>
             </div>
+            <div class="form-section customize-section">
+                <h2 class="form-section-header">Custom Output Theme</h2>
+                <div class="custom-options">
+                    <fieldset>
+                        <legend>Text Color</legend>
+                        <input id="fg-color" type="color">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Background Color</legend>
+                        <input id="bg-color" type="color" value="#ffffff">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Accent Color</legend>
+                        <input id="alt-color" type="color" value="#30acff">
+                    </fieldset>
+                </div>
+            </div>
             <div class="form-section submit-section">
                 <button id="submit">Create Resume</button>
             </div>
         </form>
+    </div>
+    <div class="side-banner">
+        <button id="theme-switch">🌙</button>
     </div>
     <script src="projectJS.js"></script>
 </body>
