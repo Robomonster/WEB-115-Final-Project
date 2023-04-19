@@ -175,3 +175,9 @@ function changeTheme() {
 
 submitBtn.addEventListener('click', submit);
 themeBtn.addEventListener('click', changeTheme);
+
+for (let elt of document.querySelectorAll('fieldset')) {
+    elt.addEventListener('click', (e) => {if (e.target.nodeName === 'FIELDSET') {
+        e.target.lastElementChild.focus()
+    }})
+}
