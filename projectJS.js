@@ -121,8 +121,10 @@ function submit() {
             let empStart = empInfo[`employ-start-${i}`]['value'];
             let empStop = empInfo[`employ-stop-${i}`]['value'];
             let empDetail = empInfo[`employ-detail-${i}`]['value'];
-            newPageHTML += `<div><nobr>${empStart}</nobr> - <nobr>${empStop}</nobr></div>`;
-            newPageHTML += `<div>${empDetail}</div>`;
+            if (empStart && empStop && empDetail) {
+                newPageHTML += `<div><nobr>${empStart}</nobr> - <nobr>${empStop}</nobr></div>`;
+                newPageHTML += `<div>${empDetail}</div>`;
+            }
         }
         newPageHTML += '</div>'
         newPageHTML += '<h2>References</h2>'
