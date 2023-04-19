@@ -5,8 +5,6 @@ let cityDet = document.querySelector('div.city.user-input-detail');
 let stateDet = document.querySelector('div.state.user-input-detail');
 let zipDet = document.querySelector('div.zip.user-input-detail');
 let phoneDet = document.querySelector('div.phone.user-input-detail');
-let siteDet = document.querySelector('div.website.user-input-detail');
-let landingDet = document.querySelector('div.links.user-input-detail');
 
 // buttons
 let submitBtn = document.getElementById('submit');
@@ -18,13 +16,16 @@ let isLightTheme = true;
 
 function submit() {
     // get values
-    // basic info
     let basicInfo = {};
     let genSkills = {};
     let techSkills = {};
     let education = {'elt': document.getElementById('education-detail'), 'value': document.getElementById('education-detail').value};
     let empInfo = {};
     let busRefInfo = {'elt': document.getElementById('business-ref'), 'value': document.getElementById('business-ref').value};
+
+    // basic info
+    // loop through ids of input elements for basic info
+    // get the element and save it & its value
     for (let id of ['name', 'email', 'city', 'state', 'zip', 'phone', 'website', 'links']) {
         let elt = document.getElementById(id);
         basicInfo[id] = {'elt': elt, 'value': elt.value};
@@ -56,12 +57,15 @@ function submit() {
 
     // check for problems
     let problems = false;
+
+    // reset all problem detail text to nothing
     for (let elt of [nameDet, emailDet, cityDet, stateDet, zipDet, phoneDet]) {
         elt.textContent = '';
     }
     // check email
     let email = basicInfo['email']['value'];
-
+    // email must be alphanumeric characters, an @, alphanumeric characters or '.'
+    // the email is made up of the name, the @, and the domain name
     let emailRegex = /^[a-zA-z0-9]+@[a-zA-z0-9.]+$/;
     if (!emailRegex.test(email)) {
         emailDet.textContent = 'Invalid email address.';
@@ -81,11 +85,15 @@ function submit() {
 
     // create page
     if (!problems) {
+        // get custom colors
         let customFG = document.getElementById('fg-color').value
         let customBG = document.getElementById('bg-color').value
         let customALT = document.getElementById('alt-color').value
 
+        // create new popup window
         let popup = window.open('', 'popUpWindow', 'height=500, width=500, left=100, top=100, resizable=yes, scrollbars=yes, toolbar=yes, menubar=no, location=no, directories=no');
+
+        // create the html for the new popup
         let newPageHTML = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title>';
         newPageHTML += `<style>* {font-family: sans-serif; color: ${customFG}; background-color: ${customBG};} h2 {border-bottom: 2px solid ${customALT};} div.gridlist {display: grid;grid-template-columns: 1fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;} div.gridlist-even {display: grid;grid-template-columns: 3fr 5fr;justify-content: center;justify-items: stretch;column-gap: 10px;row-gap: 10px;align-items: start;}</style>`;
         newPageHTML += '</head><body>';
@@ -135,6 +143,7 @@ function submit() {
 }
 
 function changeTheme() {
+    // simple toggle to set css colors for light/dark theme
     isLightTheme = !isLightTheme;
     let root = document.querySelector(':root');
 
@@ -176,6 +185,8 @@ function changeTheme() {
 submitBtn.addEventListener('click', submit);
 themeBtn.addEventListener('click', changeTheme);
 
+// set the focus to the last fieldset child if clicking on the fieldset
+// this is needed because it is not easily apparent where the input element is inside the fieldset because of style choices
 for (let elt of document.querySelectorAll('fieldset')) {
     elt.addEventListener('click', (e) => {if (e.target.nodeName === 'FIELDSET') {
         e.target.lastElementChild.focus()
