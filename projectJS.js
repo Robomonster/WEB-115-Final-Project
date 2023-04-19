@@ -65,8 +65,7 @@ function submit() {
     let emailRegex = /^[a-zA-z0-9]+@[a-zA-z0-9.]+$/;
     if (!emailRegex.test(email)) {
         emailDet.textContent = 'Invalid email address.';
-        emailDet.scrollIntoView();
-        scrollBy(0, -100);
+        emailDet.scrollIntoView({behavior: 'smooth', block: 'center'});
         problems = true;
     }
 
@@ -75,8 +74,7 @@ function submit() {
         let v = basicInfo[id];
         if (!v.value && id != 'website' && id != 'links') {
             document.querySelector(`div.${id}.user-input-detail`).textContent = 'Must not be blank.';
-            document.querySelector(`div.${id}.user-input-detail`).scrollIntoView();
-            scrollBy(0, -100);
+            document.querySelector(`div.${id}.user-input-detail`).scrollIntoView({behavior: 'smooth', block: 'center'});
             problems = true;
         }
     }

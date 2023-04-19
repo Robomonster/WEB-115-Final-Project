@@ -17,7 +17,6 @@
 
 * {
     font-family: sans-serif;
-    border-radius: 5px;
 }
 
 body {
@@ -50,14 +49,14 @@ h2.form-section-header {
 
 div.form-body {
     margin: auto;
-    max-width: clamp(1280px, 50vw, 1920px);
+    max-width: clamp(960px, 50vw, 1920px);
 }
 
 div.form-section {
     border: 2px solid var(--bd);
     border-top-width: 1px;
     border-bottom-width: 1px;
-    padding: 10px;
+    padding: 25px;
 }
 
 div.form-section:first-child {
@@ -71,10 +70,11 @@ div.form-section:last-child {
 fieldset {
     border-color: var(--bd);
     box-shadow: var(--shadow) 0px 0px 8px;
+    border-radius: 5px;
 }
 
 legend {
-    font-size: 1.2rem;
+    font-size: .8rem;
     text-align: left;
     text-shadow: white;
 }
@@ -82,20 +82,22 @@ legend {
 input {
     transition: .2s;
     width: 100%;
-    font-size: 2rem;
+    font-size: 1rem;
     background-color: var(--bg);
     color: var(--fg);
+    border-radius: 5px;
 }
 
 textarea {
     transition: .2s;
     font-family: sans-serif;
-    font-size: 2rem;
+    font-size: 1rem;
     resize: none;
     height: clamp(3lh, 5lh, 300px);
     width: 100%;
     background-color: var(--bg);
     color: var(--fg);
+    border-radius: 5px;
 }
 
 button {
@@ -103,7 +105,7 @@ button {
     padding: 10px;
     min-width: 4ch;
     background: var(--bg);
-    font-size: 2.1rem;
+    font-size: 1.5rem;
     color: var(--fg);
 }
 
@@ -149,11 +151,15 @@ fieldset:hover {
 }
 
 div.user-input-description, div.user-input-detail {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--fg-alt);
     /* text-align: center; */
     align-items: center;
     padding: .6rem 0;
+}
+
+div.user-input-description {
+    font-size: 1rem;
 }
 
 div.user-input-detail {
