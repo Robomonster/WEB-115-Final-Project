@@ -228,6 +228,7 @@ div.side-banner {
 }
 
 #theme-switch {
+    display: block;
     background-color: var(--bg);
     border: none;
     text-align: center;
